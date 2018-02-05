@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+<body>
+    <img id="img" src="" class="img-responsive"  >
+    <button class="btn btn-success">提交按钮</button>
+</body>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+
+    $("button").click(function () {
+
+        $.ajax({
+            url:"/api", // /api  ./json/picture.json  192.168.4.22:3001/demo/static/json/picture.json
+            method:"post",
+            data:{
+                "img":"first"
+            },
+            success:function(data){
+                // console.log('success',data.img);
+                $("#img").attr("src",data.img);
+            }
+        })
+
+        
+    })
+    
+    
+</script>
+</html>
